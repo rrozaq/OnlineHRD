@@ -9,8 +9,8 @@
 
 	if (isset($_POST['submit'])) 
 	{
-		$question = $_POST['soal'];
-		$system_answer = $_POST['jawaban'];
+		$question = htmlspecialchars($_POST['soal'], ENT_QUOTES);
+		$system_answer = htmlspecialchars($_POST['jawaban'], ENT_QUOTES);
 
 		//$questionQuery = mysqli_query($conn, "INSERT INTO t_soal(no, soal, system_answer) VALUES (null, '$question', '$system_answer')");
 		$questionQuery = $conn->query("INSERT INTO t_soal(no, soal, system_answer) VALUES (null, '$question', '$system_answer')");
